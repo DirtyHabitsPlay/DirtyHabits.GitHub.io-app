@@ -1,0 +1,21 @@
+name: 'Setup Java environment'
+description: 'Setup your runner with Java'
+author: 'GitHub'
+inputs:
+  java-version:
+    description: 'The JDK version to make available on the path. Takes a whole or semver Jdk version, or 1.x syntax (e.g. 1.8 => Jdk 8.x)'
+    required: true
+  architecture:
+    description: 'The architecture (x86, x64) of the JDK.'
+    required: true
+    default: 'x64'
+  jdkFile:
+    description: 'Path to where the compressed JDK is located. The path could be in your source repository or a local path on the agent.'
+    required: false
+  version:
+    description: 'Deprecated. Use java-version instead. Will not be supported after October 1, 2019'
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'lib/setup-java.js'
